@@ -28,5 +28,6 @@ GPLv2+
 
 * OpenSprites fork of [scratch-flash](https://github.com/rhysmoyne/scratch-flash) (with modifications by me, GPLv2+)
 * [Swfobject](https://github.com/swfobject/swfobject) (MIT)
+* [Knob Buttons Toolbar icons](http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960) by Miles Ponson (iTweek)
 
 <sup>1 Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See http://scratch.mit.edu.</sup>
