@@ -11,6 +11,7 @@
 <section class="grid-wrap">
 <ul class="grid">
 		<li class="grid-sizer"></li>
+  {% if school %}
   {% for school in this.children %}
 	<a href="{{ school|url }}">
 	<li class="grid-sizer">
@@ -32,6 +33,15 @@
 	</li>
 	</a>
   {% endfor %}
+  {% else %}
+   		<li class="grid-sizer">
+
+			<figure>
+				<div class="info">Add a school by clicking 'Add Page' in the admin interface.</div>
+			</figure>
+			</a>
+		</li>
+  {% endif %}
   </ul>
 </section>
 
