@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block title %}{% endblock %}
+{% block body %}
+
+
+<div class="container">
+	<header class="clearfix">
+		<p><a href="..">Schools</a> > <a href=".">{{ this.name }} Galleries</a></p>
+		<div id="myoutercontainer">
+		{% set image = this.attachments.images.first() %}
+     		 {% if image %}
+        	<img class="school_logo" src="{{ image.thumbnail(150)|url }}" alt=""> <!--- TODO -->
+		 {% else %}
+			<div class="warning" style="float:right; width:150px">Please upload a school logo (use 'Add Attachment')</div>
+      	        {% endif %}
+
+		<div id="myinnercontainer" style="position: relative">
+		<h1>{{ this.name }} Galleries</h1>
+	</div>
+</div>
+	</header>
+
+	<div id="grid-gallery" class="grid-gallery">
+
+	<section class="grid-wrap">
+	<ul class="grid">
+		<li class="grid-sizer"></li><!-- for Masonry column width -->
+		{% if this.children %}
+		{% for gallery in this.children %}
+		<li class="grid-sizer">
+			<a href="{{ gallery|url }}">
+			<figure>
+				{% set image = gallery.attachments.images.first() %}
+      				{% if image %}
+				<img src="{{ image|url }}" alt=""/>
+				{% else %}
+				<div style="height:180px">
+				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a thumbnail (use 'Add Attachment')</div></img>
+				</div>
+			       {% endif %}
+				<figcaption>
+					<h3>{{ gallery.name }}</h3>
+					<p>by {{ gallery.class }} class <br/> {{ gallery.term }}</p>
+				</figcaption>
+			</figure>
+			</a>
+		</li>
+		{% endfor %}
+		{% else %}
+		<li class="grid-sizer">
+
+			<figure>
+				<div class="info">Create a gallery by clicking 'Add Page' in the admin interface.</div>
+			</figure>
+			</a>
+		</li>
+		
+		{% endif %}
+	</ul>
+	</section><!-- // grid-wrap -->
+
+<section class="slideshow">
+<ul></ul>
+</section>
+	</div><!-- // grid-gallery -->
+
+<p style="text-align:center"><a href="..">Return to school list.</a></p>
+
+</div>
+
+
+{% endblock %}

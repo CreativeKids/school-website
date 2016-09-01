@@ -1,0 +1,3 @@
+[submodule "src/scratch-flash"]
+	path = src/scratch-flash
+	url = git@github.com:rhysmoyne/scratch-flash.git
