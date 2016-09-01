@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Schools{% endblock %}
+{% block title %}Schools - {% endblock %}
 {% block body %}
 <div class="container">
 	<header class="clearfix">
@@ -11,7 +11,7 @@
 <section class="grid-wrap">
 <ul class="grid">
 		<li class="grid-sizer"></li>
-  {% if school %}
+  {% if this.children %}
   {% for school in this.children %}
 	<a href="{{ school|url }}">
 	<li class="grid-sizer">

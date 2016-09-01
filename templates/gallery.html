@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}{{ this.name }} {% endblock %}
+{% block title %}{{ this.name }} - {% endblock %}
 {% block scripts %}
     <script type="text/javascript" src="{{ '/static/js/swfobject.js'|url }}"></script>
     <script type="text/javascript">
@@ -118,7 +118,7 @@
 				<img src="{{ image|url }}" alt=""/>
 				{% else %}
 				<div style="height:180px">
-				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a project thumbnail (use 'Add Attachment')</div></img>
+				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a project thumbnail for project '{{ project.name }}' by using 'Add Attachment' in the admin interface.</div></img>
 				</div>
 				{% endif %}
 				<figcaption>

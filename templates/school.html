@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}{% endblock %}
+{% block title %}{{ this.name }} Galleries - {% endblock %}
 {% block body %}
 
 
@@ -35,7 +35,7 @@
 				<img src="{{ image|url }}" alt=""/>
 				{% else %}
 				<div style="height:180px">
-				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a thumbnail (use 'Add Attachment')</div></img>
+				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a thumbnail for the '{{ gallery.name }}' gallery by using 'Add Attachment' in the admin interface.</div></img>
 				</div>
 			       {% endif %}
 				<figcaption>
