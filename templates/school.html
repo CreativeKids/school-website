@@ -5,7 +5,7 @@
 
 <div class="container">
 	<header class="clearfix">
-		<p><a href="..">Schools</a> > <a href=".">{{ this.name }} Galleries</a></p>
+		<p><a href="..">Schools</a> > <a href=".">{{ this.name }}</a></p>
 		<div id="myoutercontainer">
 		{% set image = this.attachments.images.first() %}
      		 {% if image %}
@@ -15,7 +15,7 @@
       	        {% endif %}
 
 		<div id="myinnercontainer" style="position: relative">
-		<h1>{{ this.name }} Galleries</h1>
+		<h1>{{ this.name }}</h1>
 	</div>
 </div>
 	</header>
@@ -26,31 +26,57 @@
 	<ul class="grid">
 		<li class="grid-sizer"></li><!-- for Masonry column width -->
 		{% if this.children %}
-		{% for gallery in this.children %}
+		{% for page in this.children %}
+		{% if page._model == "galleries" %}
 		<li class="grid-sizer">
-			<a href="{{ gallery|url }}">
+			<a href="{{ page|url }}">
 			<figure>
-				{% set image = gallery.attachments.images.first() %}
-      				{% if image %}
-				<img src="{{ image|url }}" alt=""/>
-				{% else %}
-				<div style="height:180px">
-				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a thumbnail for the '{{ gallery.name }}' gallery by using 'Add Attachment' in the admin interface.</div></img>
-				</div>
-			       {% endif %}
+				<img src="{{ '/static/gallery_icon.png'|url }}" alt=""/>
 				<figcaption>
-					<h3>{{ gallery.name }}</h3>
-					<p>by {{ gallery.class }} class <br/> {{ gallery.term }}</p>
+					<h3>{{ page.name }}</h3>
 				</figcaption>
 			</figure>
 			</a>
 		</li>
+                {% endif %}
+		{% if page._model == "wiki" %}
+		<li class="grid-sizer">
+			{% if page.url %}
+			<a href="{{ page.url }}" target="_blank">
+			{% else %}
+			<a href="{{ page|url }}" target="_blank">
+			{% endif %}
+			<figure>
+				<img src="{{ '/static/wiki_icon.png'|url }}" alt=""/>
+				<figcaption>
+					<h3>{{ page.name }}</h3>
+				</figcaption>
+			</figure>
+			</a>
+		</li>
+                {% endif %}
+		{% if page._model == "projects" %}
+		<li class="grid-sizer">
+			{% if page.url %}
+			<a href="{{ page.url }}" target="_blank">
+			{% else %}
+			<a href="{{ page|url }}" target="_blank">
+			{% endif %}
+			<figure>
+				<img src="{{ '/static/projects_icon.png'|url }}" alt=""/>
+				<figcaption>
+					<h3>{{ page.name }}</h3>
+				</figcaption>
+			</figure>
+			</a>
+		</li>
+                {% endif %}
 		{% endfor %}
 		{% else %}
 		<li class="grid-sizer">
 
 			<figure>
-				<div class="info">Create a gallery by clicking 'Add Page' in the admin interface.</div>
+				<div class="info">Create a page by clicking 'Add Page' in the admin interface.</div>
 			</figure>
 			</a>
 		</li>

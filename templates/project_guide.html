@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.name }} - {% endblock %}
+{% block scripts %}
+
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function(){
+  scratchblocks.renderMatching('code.lang-blocks', {languages: ['en']});
+});
+</script>
+{% endblock %}
+{% block body %}
+
+
+<div class="container">
+	<header class="clearfix">
+		<p><a href="../../..">Schools</a> > <a href="../..">{{ this.parent.parent.name }}</a> > <a href="..">{{ this.parent.name}}</a> > <a href=".">{{this.name}}</a></p>
+
+		{% set image = this.parent.parent.attachments.images.first() %}
+     		 {% if image %}
+		<div id="myoutercontainer">
+        	<img class="school_logo" src="{{ image|url }}" alt=""> <!--- TODO -->
+
+		<div id="myinnercontainer" style="position:relative">
+		<h1>{{ this.name }}</h1><br/><br/>
+		<p style="position:absolute">by {{ this.author }} </p>
+	</div></div>		
+		 {% else %}
+		<div id="myoutercontainer">
+			<div class="warning" style="float:right; width:150px">Please upload a school logo (use 'Add Attachment')</div>
+
+
+		<div id="myinnercontainer" style="position:relative">
+		<h1>{{ this.name }}</h1><br/><br/>
+		<p style="position:absolute">by {{ this.class }} class <br/> {{ this.term }}</p>
+	</div></div>	
+      	        {% endif %}
+	</header>
+
+<header class="instructions"><div>{{ this.instructions }}</div></header>
+
+<p style="text-align:center"><a href="..">Return to project list.</a></p>
+
+</div>
+
+<script src="http://scratchblocks.github.io/js/scratchblocks-v3.1-min.js"></script>
+{% endblock %}
+
+{% block footer %}
+Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See <a href="http://scratch.mit.edu">http://scratch.mit.edu.</a> <br/>
+
+{% endblock %}
+

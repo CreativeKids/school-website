@@ -79,7 +79,7 @@
 
 <div class="container">
 	<header class="clearfix">
-		<p><a href="../..">Schools</a> > <a href="..">{{ this.parent.name }} Galleries</a> > <a href=".">{{this.name}}</a></p>
+		<p><a href="../../..">Schools</a> > <a href="../..">{{ this.parent.parent.name }}</a> > <a href="..">{{ this.parent.name}}</a> > <a href=".">{{this.name}}</a></p>
 
 		{% set image = this.parent.attachments.images.first() %}
      		 {% if image %}

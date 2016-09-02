@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Wiki - {% endblock %}
+{% block body %}
+<div class="container">
+	<header class="clearfix">
+		<h1>Wiki successfully created!</h1><br/><br/>
+		{% if this.url %}
+		<p><div class="info">Wiki URL is set to: <a href="{{ this.url }}">{{ this.url}}</a></div></p>
+		{% else %}
+		<p><div class="info">Please set the wiki URL in the admin interface.</div></p>
+		{% endif %}
+	</header>
+
+</div>
+{% endblock %}
