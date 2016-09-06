@@ -3,13 +3,23 @@
 {% block body %}
 <div class="container">
 	<header class="clearfix">
-		<h1>Wiki successfully created!</h1><br/><br/>
+	<p><a href="..">Home</a> > <a href=".">{{ this.name }}</a></p>
+		
+		
+<div class="preview" style="position: absolute; height: 80%; width: 60%">
 		{% if this.url %}
-		<p><div class="info">Wiki URL is set to: <a href="{{ this.url }}">{{ this.url}}</a></div></p>
+		<!--<p><div class="info">Wiki URL is set to: <a href="{{ this.url }}">{{ this.url}}</a></div></p>-->
+		<iframe src="{{ this.url}}" scrolling="auto" style="display: block; border: 0; width: 100%; height: 100%"></iframe>
 		{% else %}
 		<p><div class="info">Please set the wiki URL in the admin interface.</div></p>
 		{% endif %}
-	</header>
+		<br/>
+	  <footer>{% block footer %}{% endblock %}Created by Rhys Moyne for <a href="http://www.creativekidssa.com.au">Creative Kids</a>.<br/> <strong>License:</strong> <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GPLv2+</a> <strong>Source:</strong> <a href="{{ '/static/creativekids.zip'|url }}">creativekids.zip</a></footer>	
+</div>
+			</header>
+
 
 </div>
+
+
 {% endblock %}

@@ -1,4 +1,5 @@
 assets/static/swf
-assets/static/project-gallery.zip
+assets/static/creative-kids-website.zip
 content/*
 *.pyc
+*.egg-info
