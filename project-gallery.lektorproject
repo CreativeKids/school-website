@@ -1,2 +1,5 @@
 [project]
 name = Project Gallery
+
+[servers.ghpages]
+target = ghpages://rhysmoyne/rhysmoyne.github.io
