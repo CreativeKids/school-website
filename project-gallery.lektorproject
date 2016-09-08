@@ -2,4 +2,4 @@
 name = Project Gallery
 
 [servers.ghpages]
-target = ghpages://rhysmoyne/rhysmoyne.github.io
+target = ghpages+https://rhysmoyne/rhysmoyne.github.io
