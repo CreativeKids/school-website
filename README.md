@@ -11,6 +11,9 @@ It provides a platform in which teachers and students can:
 
 The website is designed to be easily customised by using the Lektor admin interface.
 
+## Screenshot
+![screenshot](https://github.com/CreativeKids/school-website/raw/master/screenshot.png)
+
 ## How to use
 1. Clone the git repository on to your computer.
 2. Make sure you have the dependencies installed.
@@ -35,9 +38,6 @@ XXX
 
 View the demonstration website [here](https://rhysmoyne.gitlab.io/project-gallery)
 
-
-## Screenshot
-![screenshot](https://gitlab.com/rhysmoyne/scratch-project-gallery/raw/master/screenshot.png)
 
 ## License
 
