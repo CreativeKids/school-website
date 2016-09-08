@@ -34,9 +34,9 @@ XXX
 
  The gallery and grid layout used throughout the website is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
 
-# Demo
+## Demo
 
-View the demonstration website [here](https://rhysmoyne.gitlab.io/project-gallery)
+View the demonstration website [here](https://creativekids.gitlab.io/school-website)
 
 
 ## License
