@@ -4,7 +4,14 @@ cache:
   directories:
     - $HOME/.cache/pip
     - $HOME/.cache/lektor/builds
-install: git clone https://$GH_TOKEN@github.com/CreativeKids/school-website.git && cd school-website && ./travis-install.sh
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install default-jre zip -y
+install: 
+  - git clone https://$GH_TOKEN@github.com/CreativeKids/school-website.git && cd school-website && ./travis-install.sh
+  - cd src/scratch-flash
+  - ./gradlew build -Ptarget=11.6
+  - cd ../..
 script: lektor build -O lektor_build
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash travis-deploy.sh
