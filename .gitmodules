@@ -1,6 +1,6 @@
 [submodule "src/scratch-flash"]
 	path = src/scratch-flash
-	url = git@github.com:rhysmoyne/scratch-flash.git
+	url = https://github.com/rhysmoyne/scratch-flash.git
 [submodule "content/projects"]
 	path = content/projects
-	url = git@github.com:CreativeKids/projects.git
+	url = https://github.com/CreativeKids/projects.git
