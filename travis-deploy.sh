@@ -21,6 +21,7 @@ git fetch upstream
 git reset upstream/gh-pages
 
 touch .
+echo ".lektor" >> .gitignore
 
 git add -A .
 git commit -m "rebuild pages at ${rev}"
