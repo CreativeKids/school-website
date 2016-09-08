@@ -1,6 +1,0 @@
-[submodule "src/scratch-flash"]
-	path = src/scratch-flash
-	url = https://github.com/rhysmoyne/scratch-flash.git
-[submodule "content/projects"]
-	path = content/projects
-	url = https://github.com/CreativeKids/projects.git
