@@ -19,16 +19,17 @@ The website is designed to be easily customised by using the Lektor admin interf
 2. Make sure you have the dependencies installed.
 3. Type `./build.sh` followed by `lektor server`
 
+## Dependencies
+
+* [Lektor](https://www.getlektor.com/)
+* Java (for building Scratch.swf from source)
+
 ## Deploying to a Raspberry Pi
 
 This website is designed to be deployed to a battery-powered Raspberry Pi computer and accessed by a collection of laptops in a school or area where electricity and Internet is not prevalent and/or reliable. The following instructions provide an explanation of how to set-up the necessary software on a Raspberry Pi computer.
 
 XXX
 
-## Dependencies
-
-* [Lektor](https://www.getlektor.com/)
-* Java (for building Scratch.swf from source)
 
 ## Credits
 
