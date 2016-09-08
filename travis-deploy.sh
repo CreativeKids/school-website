@@ -21,8 +21,9 @@ git fetch upstream
 git pull upstream master
 
 rm -rf projects/
+rm -rf static
 cp -R ../lektor_build/projects projects/
-cp -R ../lektor_build/static static
+cp -R ../lektor_build/static static/
 
 git add -A .
 git commit -m "rebuild pages at ${rev}"
