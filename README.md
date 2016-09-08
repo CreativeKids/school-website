@@ -14,6 +14,10 @@ The website is designed to be easily customised by using the Lektor admin interf
 ## Screenshot
 ![screenshot](https://github.com/CreativeKids/school-website/raw/master/screenshot.png)
 
+## License
+
+GPLv2+
+
 ## How to use
 1. Clone the git repository on to your computer.
 2. Make sure you have the dependencies installed.
@@ -30,22 +34,13 @@ This website is designed to be deployed to a battery-powered Raspberry Pi comput
 
 XXX
 
-
-## Credits
-
- The gallery and grid layout used throughout the website is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
-
 ## Demo
 
 View the demonstration website [here](https://creativekids.gitlab.io/school-website)
 
-
-## License
-
-GPLv2+
-
 ## Credits
 
+ * The gallery and grid layout used throughout the website is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
 * OpenSprites fork of [scratch-flash](https://github.com/rhysmoyne/scratch-flash)<sup>1</sup> (with modifications by me, GPLv2+)
 * [Swfobject](https://github.com/swfobject/swfobject) (MIT)
 * [Knob Buttons Toolbar icons](http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960) by Miles Ponson (iTweek)
