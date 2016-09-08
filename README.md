@@ -1,7 +1,7 @@
-#Internal School Website for [Creative Kids](http://www.creativekidssa.com.au)
+#Internal School Website for the [Creative Kids Mobile Creative Computing Lab](http://www.creativekidssa.com.au/gh/mobilecclab.html)
 [![Build Status](https://travis-ci.org/CreativeKids/school-website.svg?branch=master)](https://travis-ci.org/CreativeKids/school-website)
 
-This is a [Lektor](https://www.getlektor.com/) project that contains an internal school website for the [Creative Kids Mobile Creative Computing Lab](http://www.creativekidssa.com.au).
+This is a [Lektor](https://www.getlektor.com/) project that contains an internal school website for the [Creative Kids Mobile Creative Computing Lab](http://www.creativekidssa.com.au/gh/mobilecclab.html).
 
 It provides a platform in which teachers and students can:
 
