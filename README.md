@@ -36,11 +36,11 @@ XXX
 
 ## Demo
 
-View the demonstration website [here](https://creativekids.gitlab.io/school-website)
+View the demonstration website [here](https://creativekids.gitlab.io/school-website).
 
 ## Credits
 
- * The gallery and grid layout used throughout the website is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
+* The gallery and grid layout used throughout the website is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
 * OpenSprites fork of [scratch-flash](https://github.com/rhysmoyne/scratch-flash)<sup>1</sup> (with modifications by me, GPLv2+)
 * [Swfobject](https://github.com/swfobject/swfobject) (MIT)
 * [Knob Buttons Toolbar icons](http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960) by Miles Ponson (iTweek)
