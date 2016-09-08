@@ -10,6 +10,8 @@ before_install:
 install: 
   - git clone https://$GH_TOKEN@github.com/CreativeKids/school-website.git && cd school-website && ./travis-install.sh
   - cd src/scratch-flash
+  - mkdir -p /root/.gradle/gradleFx/sdks/77b6510675e9bf47142422c374af153591fe4734/in && wget http://sourceforge.net/projects/osmf.adobe/files/OSMF%201.0%20%28final%20source%2C%20ASDocs%2C%20PDF%20guides%2C%20and%20release%20notes%29/OSMF_1.0.zip/download -O /root/.gradle/gradleFx/sdks/77b6510675e9bf47142422c374af153591fe4734/in/OSMF_1.0.zip
+  - mkdir -p /root/.gradle/gradleFx/sdks/77b6510675e9bf47142422c374af153591fe4734/in && wget https://codeload.github.com/swfobject/swfobject/zip/2.2 -O /root/.gradle/gradleFx/sdks/77b6510675e9bf47142422c374af153591fe4734/in/swfobject_2_2.zip
   - ./gradlew build -Ptarget=11.6
   - cd ../..
 script: lektor build -O lektor_build
