@@ -1,0 +1,5 @@
+[project]
+name = School Website
+
+[servers.ghpages]
+target = ghpages+https://CreativeKids/projects.git

@@ -1,5 +1,0 @@
-[project]
-name = Project Gallery
-
-[servers.ghpages]
-target = ghpages+https://rhysmoyne/rhysmoyne.github.io.git
