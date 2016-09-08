@@ -14,11 +14,13 @@ The website is designed to be easily customised by using the Lektor admin interf
 ## How to use
 1. Clone the git repository on to your computer.
 2. Make sure you have the dependencies installed.
-3. Type `./build.sh` followed by `lektor serve`
+3. Type `./build.sh` followed by `lektor server`
 
 ## Deploying to a Raspberry Pi
 
-This website is designed to be hosted by a Raspberry Pi computer. 
+This website is designed to be deployed to a battery-powered Raspberry Pi computer and accessed by a collection of laptops in a school or area where electricity and Internet is not prevalent and/or reliable. The following instructions provide an explanation of how to set-up the necessary software on a Raspberry Pi computer.
+
+XXX
 
 ## Dependencies
 
