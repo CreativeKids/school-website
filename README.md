@@ -36,7 +36,7 @@ XXX
 
 ## Demo
 
-View the demonstration website [here](https://creativekids.gitlab.io/school-website).
+View the demonstration website [here](https://creativekids.github.io/school-website).
 
 ## Credits
 
