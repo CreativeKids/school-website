@@ -1,21 +1,38 @@
-Project Gallery for [Creative Kids](http://www.creativekidssa.com.au)
-=========
+#Internal School Website for [Creative Kids](http://www.creativekidssa.com.au)
+[![Build Status](https://travis-ci.org/CreativeKids/school-website.svg?branch=master)](https://travis-ci.org/CreativeKids/school-website)
 
-This is a project gallery that allows the creation of multiple schools and [Scratch](http://www.scratch.mit.edu)<sup>1</sup> galleries. The gallery layout is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
+This is a [Lektor](https://www.getlektor.com/) project that contains an internal school website for the [Creative Kids Mobile Creative Computing Lab](http://www.creativekidssa.com.au).
 
-## Demo
+It provides a platform in which teachers and students can:
 
-View the gallery [here](https://rhysmoyne.gitlab.io/project-gallery)
+* Create and view projects
+* Create and view student project galleries
+* Create and view internal documentation on a self-hosted [DokuWiki](https://www.dokuwiki.org)
+
+The website is designed to be easily customised by using the Lektor admin interface.
 
 ## How to use
 1. Clone the git repository on to your computer.
 2. Make sure you have the dependencies installed.
 3. Type `./build.sh` followed by `lektor serve`
 
+## Deploying to a Raspberry Pi
+
+This website is designed to be hosted by a Raspberry Pi computer. 
+
 ## Dependencies
 
 * [Lektor](https://www.getlektor.com/)
 * Java (for building Scratch.swf from source)
+
+## Credits
+
+ The gallery and grid layout used throughout the website is based upon [Jekyll Photo Grid Gallery](https://github.com/iamnii/GridGallery).
+
+# Demo
+
+View the demonstration website [here](https://rhysmoyne.gitlab.io/project-gallery)
+
 
 ## Screenshot
 ![screenshot](https://gitlab.com/rhysmoyne/scratch-project-gallery/raw/master/screenshot.png)
@@ -26,7 +43,7 @@ GPLv2+
 
 ## Credits
 
-* OpenSprites fork of [scratch-flash](https://github.com/rhysmoyne/scratch-flash) (with modifications by me, GPLv2+)
+* OpenSprites fork of [scratch-flash](https://github.com/rhysmoyne/scratch-flash)<sup>1</sup> (with modifications by me, GPLv2+)
 * [Swfobject](https://github.com/swfobject/swfobject) (MIT)
 * [Knob Buttons Toolbar icons](http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960) by Miles Ponson (iTweek)
 
