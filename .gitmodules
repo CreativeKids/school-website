@@ -6,3 +6,7 @@
 	path = content/projects
 	url = https://github.com/CreativeKids/projects.git
 	branch = master
+[submodule "assets/wiki"]
+	path = assets/wiki
+	url = https://github.com/rhysmoyne/creative-kids-dokuwiki.git
+	branch = master
