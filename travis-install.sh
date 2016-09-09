@@ -10,6 +10,8 @@ cd assets/wiki && \
 git submodule init && \
 git submodule update && \
 git submodule update --remote data/pages && \
+git config user.name "Rhys Moyne" && \
+git config user.email "rhys@creativekidssa.com.au" && \
 git add data/pages && \
 git commit -m "Update wiki to latest content."; \
 cd ../.. && \
