@@ -15,7 +15,6 @@ git commit -m "Update wiki to latest content."; \
 cd ../.. && \
 git add content/projects && \
 git add assets/wiki && \
-
 git pull && \
 git commit -m "Update projects and wiki to latest content."; \
 git push -u origin master && \
