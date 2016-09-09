@@ -32,7 +32,7 @@ GPLv2+
 
 This website is designed to be deployed to a battery-powered Raspberry Pi computer and accessed by a collection of laptops in a school or area where electricity and Internet is not prevalent and/or reliable. The following instructions provide an explanation of how to set-up the necessary software on a Raspberry Pi computer.
 
-XXX
+XXX 
 
 ## Demo
 
