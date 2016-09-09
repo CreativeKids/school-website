@@ -12,9 +12,10 @@ git submodule update && \
 git submodule update --remote data/pages && \
 git config user.name "Rhys Moyne" && \
 git config user.email "rhys@creativekidssa.com.au" && \
+git checkout master && \
 git add data/pages && \
 git commit -m "Update wiki to latest content."; \
-git push -u https://$GH_TOKEN@github.com/rhysmoyne/creative-kids-dokuwiki.git master && \
+git push https://$GH_TOKEN@github.com/rhysmoyne/creative-kids-dokuwiki.git master && \
 cd ../.. && \
 git add content/projects && \
 git add assets/wiki && \
