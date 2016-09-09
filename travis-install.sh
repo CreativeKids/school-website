@@ -14,7 +14,7 @@ git config user.name "Rhys Moyne" && \
 git config user.email "rhys@creativekidssa.com.au" && \
 git add data/pages && \
 git commit -m "Update wiki to latest content."; \
-git push -u origin master && \
+git push -u https://$GH_TOKEN@github.com/rhysmoyne/creative-kids-dokuwiki.git master && \
 cd ../.. && \
 git add content/projects && \
 git add assets/wiki && \
