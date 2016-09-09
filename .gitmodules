@@ -1,6 +1,8 @@
 [submodule "src/scratch-flash"]
 	path = src/scratch-flash
 	url = https://github.com/rhysmoyne/scratch-flash.git
+	branch = master
 [submodule "content/projects"]
 	path = content/projects
 	url = https://github.com/CreativeKids/projects.git
+	branch = master
