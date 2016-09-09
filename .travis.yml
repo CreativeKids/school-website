@@ -5,7 +5,7 @@ cache:
     - $HOME/.cache/pip
     - $HOME/.cache/lektor/builds
 install: 
-  - git clone https://$GH_TOKEN@github.com/CreativeKids/school-website.git && cd school-website && ./travis-install.sh
+  - git clone https://$GH_TOKEN@github.com/CreativeKids/school-website.git && cd school-website && pip install lektor && pip install lektor && git submodule init && git submodule update content/projects && zip -r assets/static/creativekids.zip assets/ content/ models/ packages/ src/ templates/ README.md LICENSE build.sh clean.sh school-website.lektorproject screenshot.png travis-deploy.sh travis-install.sh
 script: lektor build -O lektor_build
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash travis-deploy.sh
