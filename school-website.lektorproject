@@ -1,2 +1,8 @@
 [project]
 name = School Website
+
+[servers.rpi]
+name = Raspberry Pi
+enabled = yes
+default = yes
+target=rsync://pi@localhost/home/pi/school-website
