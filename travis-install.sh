@@ -14,6 +14,7 @@ git config user.name "Rhys Moyne" && \
 git config user.email "rhys@creativekidssa.com.au" && \
 git add data/pages && \
 git commit -m "Update wiki to latest content."; \
+git push -u origin master && \
 cd ../.. && \
 git add content/projects && \
 git add assets/wiki && \
