@@ -19,7 +19,11 @@ The website is designed to be easily customised by using the Lektor admin interf
 GPLv2+
 
 ## How to use
-1. Clone the git repository on to your computer.
+1. Clone the git repository  (including the submodules) on to your computer.
+
+    ```
+    git clone --recursive https://github.com/CreativeKids/school-website.git
+    ```
 2. Make sure you have the dependencies installed.
 3. Type `./build.sh` followed by `lektor server`
 
