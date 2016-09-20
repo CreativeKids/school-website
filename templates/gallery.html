@@ -2,6 +2,66 @@
 {% block title %}{{ this.name }} - {% endblock %}
 {% block scripts %}
     <script type="text/javascript" src="{{ '/static/js/swfobject.js'|url }}"></script>
+    <script type="text/javascript" src="{{ '/static/js/jquery-3.1.0.min.js'|url }}"></script>
+<script type="text/javascript">
+// thanks to http://www.phpgang.com/how-to-show-image-thumbnail-before-upload-with-jquery_573.html //
+$(function() {
+    $("#thumbnail").on("change", function()
+    {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+
+            reader.onloadend = function(){ // set image data as background of div
+                $("#imagePreview").css("background-image", "url("+this.result+")");
+            }
+        }
+    });
+});
+    $(function () {
+      $('#frmAddProject').on('submit', function(e) {
+          e.preventDefault();
+          $("#path").val(location.pathname);
+          $('#status_msg').html("<p><center>Adding project...</center></p>");
+          
+          var formData = new FormData($(this)[0]);
+          $.ajax({
+            type: 'post',
+            url: "{{ '/static/php/addproject.php'|url }}",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+              if (data.status == 'success') {
+                $('#status_msg').html("<p><center>Project successfully added!</center></p>");
+              
+                $('#grid-gallery > section.slideshow > nav > span').trigger("click");
+                location.reload(true);
+              } else {
+                $('#status_msg').html(data.status);
+              }
+            }
+          });
+
+      });
+    });
+</script>
+
+<style>
+#imagePreview {
+    width: 160px;
+    height: 160px;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("{{ '/static/thumbnail_default.png'|url }}");
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+</style>
+
     <script type="text/javascript">
     function JSeditorReady() {
       return true;
@@ -88,11 +148,12 @@
 
 		<div id="myinnercontainer" style="position:relative">
 		<h1>{{ this.name }}</h1><br/><br/>
-		<p style="position:absolute">by {{ this.class }} class <br/> {{ this.term }}</p>
+		<p style="position:absolute">{{ this.term }}</p>
+
 	</div></div>		
 		 {% else %}
 		<div id="myoutercontainer">
-			<div class="warning" style="float:right; width:150px">Please upload a school logo (use 'Add Attachment')</div>
+			<div class="warning" style="float:right; width:150px">Please upload a gallery logo (use 'Add Attachment')</div>
 
 
 		<div id="myinnercontainer" style="position:relative">
@@ -123,22 +184,23 @@
 				{% endif %}
 				<figcaption>
 					<h3>{{ project.name }}</h3>
-					<p>by {{ project.author }} <br/>Year {{ project.year_level }}</p>
+					<p>by {{ project.author }}</p>
 				</figcaption>
 			</figure>
 		</li>
 		{% endfor %}
-		{% else %}
-		<li>
 
-			<figure>
-				<div class="info">Add a project by clicking 'Add Page' in the admin interface.</div>
-
-			</figure>
-			</a>
-		</li>
-		
 		{% endif %}
+		<li>
+		    <figure>
+		    <div style="height:180px">
+		    <center><img src="{{ '/static/add_project.png'|url }}" style="width:80%"></img></center>
+		    </div>
+		    <figcaption>
+					<h3>Add New Project</h3>
+				</figcaption>
+			</figure>
+		</li>
 	</ul>
 	</section><!-- // grid-wrap -->
 	
@@ -146,32 +208,114 @@
 	<ul>
 		{% for project in this.children %}
 			{% for attachment in project.attachments %}
-				{% if attachment.attachment_filename.endswith("sb2") %}
+				{% if attachment.attachment_filename.endswith("sb2") or attachment.attachment_filename.endswith("sb") %}
 					{% set project_file = attachment %}
 				{% endif %}
 
 			{% if project_file %}
 		<li id="{{ project_file|url }}">
 			<figure id="fig{{ project_file|url }}">
-				<div id="flashContent{{ project_file|url }}" width="100%" height="100%">
-					<a href="http://www.adobe.com/go/getflash">Adobe Flash Player</a>
+			{% if project.attachments.images.first() %}
+								<center><img src="{{ project.attachments.images.first().thumbnail(350)|url }}" style="width: auto; padding-left: 8%; padding-right: 8%; padding-bottom: 2%" /></center>
+				{% else %} 
+				<div style="height:180px">
+				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a project thumbnail for project '{{ project.name }}' by using 'Add Attachment' in the admin interface.</div></img>
 				</div>
+				{% endif %}
 
-				<figcaption><h3>{{ project.name }}</h3><p>by {{ project.author }} (Year {{ project.year_level }}) <a id="sb2_download" href="{{ project_file|url }}">Download .sb2</a></p></figcaption>
+
+				<figcaption><h3>{{ project.name }}</h3><p>by {{ project.author }}<a id="sb2_download" href="{{ project_file|url }}"><!-- Button -->
+
+    <button id="download" name="download" class="btn btn-primary">Download Project</button>
+</a><br/>
+				{% if project.description %}
+				<br/>
+				<pre style="color: ; border: 0; width: 92%">{{ project.description }}</pre> </p></figcaption>
+				{% endif %}
 			</figure>
 		</li>
+		
+		    {% set project_file = "" %}
 			{% endif %}
 
 			{% endfor %}
-			{% if project_file %}
-			{% else %}
-		<li>
-			<div class="warning" style="display: flex; justify-content: center; align-items: center">
-					Please upload a Scratch project file (.sb2) for project '{{ project.name }}' using 'Add Attachment' in the admin interface.
-			</div>
-		</li>
-			{% endif %}
 		{% endfor %}
+		
+		<li id="add_project">
+		    <figure id="figAddProject">
+		    <figcaption>
+		    <form id="frmAddProject" class="form-horizontal" enctype="multipart/form-data">
+
+<!-- Form Name -->
+<center><h1>Add New Project</h1></center>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="projectname">Project Name</label>  
+  <div class="col-md-5">
+  <input id="projectname" name="projectname" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="creator">Creator</label>  
+  <div class="col-md-5">
+  <input id="creator" name="creator" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-5">                     
+    <textarea class="form-control" id="description" name="description" required=""></textarea>
+  </div>
+</div>
+
+
+<!-- File Button --> 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="thumbnail">Project Thumbnail</label>
+  <div class="col-md-4">
+    <input id="thumbnail" name="thumbnail" class="input-file" type="file" required="">
+  </div>
+</div>
+
+  <center><div id="imagePreview"></div></center>
+  <br/>
+<!-- File Button --> 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="projectfile">Project File</label>
+  <div class="col-md-4">
+    <input id="projectfile" name="projectfile" class="input-file" type="file" required="">
+  </div>
+</div>
+
+
+
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Add Project</button>
+  </div>
+</div>
+
+<input type="hidden" value="{{ this|url }}" id="path" name="path" />
+
+<div id="status_msg"></div>
+
+
+
+</form>
+</figcaption>
+		    </figure>
+		</li>
 
 	</ul>
 	<nav>
