@@ -5,4 +5,4 @@ name = School Website
 name = Raspberry Pi
 enabled = yes
 default = yes
-target=rsync://pi@localhost/home/pi/school-website
+target=rsync://pi@localhost/home/pi/lektor/school-website/build
