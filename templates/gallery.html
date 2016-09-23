@@ -24,6 +24,7 @@ $(function() {
       $('#frmAddProject').on('submit', function(e) {
           e.preventDefault();
           $("#path").val(location.pathname);
+          $("#frmAddProject").attr("disabled", true);
           $('#status_msg').html("<p><center>Adding project... <img style=\"width: auto; display: initial\" src=\"{{ '/static/ajax-loader.gif' }}\"/></center></p>");
           
           var formData = new FormData($(this)[0]);
@@ -42,9 +43,11 @@ $(function() {
               } else {
                 $('#status_msg').html(data.status);
               }
+              $("#frmAddProject").attr("disabled", false);
             },
             error: function (jqXHR, textStatus, errorThrown) {
               $('#status_msg').html(jqXHR + " " + textStatus + " " + errorThrown);
+              $("#frmAddProject").attr("disabled", false);
             }
           });
 
