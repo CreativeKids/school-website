@@ -24,7 +24,7 @@ $(function() {
       $('#frmAddProject').on('submit', function(e) {
           e.preventDefault();
           $("#path").val(location.pathname);
-          $('#status_msg').html("<p><center>Adding project...</center></p>");
+          $('#status_msg').html("<p><center>Adding project... <img style=\"width: auto; display: initial\" src=\"{{ '/static/ajax-loader.gif' }}\"/></center></p>");
           
           var formData = new FormData($(this)[0]);
           $.ajax({
