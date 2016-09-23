@@ -1,118 +1,32 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.name }} - {% endblock %}
 {% block scripts %}
-<style>
-html {
-  height: 95%;
-  overflow: hidden; /* Hides scrollbar in IE */
-}
- 
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
- 
-#flashContent {
-  height: 100%;
-}
-</style>
-    <script type="text/javascript" src="{{ '/static/js/swfobject.js'|url }}"></script>
-    <script type="text/javascript">
-    function JSeditorReady() {
-      return true;
-    }
-
-    function JSsetPresentationMode(flag) {
-      if (flag) {
-        var element = document.getElementsByClassName("current show")[0];
-
-        element.style.width = "60%";
-        element.style.height = "90%";
-        element.style.top = "5%";
-        element.style.left = "20%";
-        element.style.margin = "0";
-      } else {
-        var element = document.getElementsByClassName("current show")[0];
-        element.style.width = "40%";
-        element.style.height = "60%";
-        element.style.top = "20%";
-        element.style.left = "30%";
-        element.style.margin = "0";
-      }
-    }
-
-
-      function loadSWF(url) {
-        var flashvars = {};
-        flashvars.project = "{{ site.url }}/data/project_files/" + url;
-        flashvars.autostart = "false";
-        var params = {};
-        params.menu = "false";
-        params.wmode = "direct";
-        params.bgcolor = "#FFFFFF";
-        params.allowfullscreen = "true";
-        params.allowscriptaccess = "always";
-        var attributes = {};
-        attributes.id = "flashContent" + url;
-
-        swfobject.embedSWF("{{ site.url }}/static/swf/Scratch.swf", "flashContent", "100%", "100%", "10.2.0", false, flashvars, params, attributes);
-      }
-
-      //Support function: checks to see if target
-      //element is an object or embed element
-      function isObject(targetID){
-         var isFound = false;
-         var el = document.getElementById(targetID);
-         if(el && (el.nodeName === "OBJECT" || el.nodeName === "EMBED")){
-            isFound = true;
-         }
-         return isFound;
-      }
-
-      function deleteSWF(targetID) {
-        targetID = "flashContent";
-       if(isObject(targetID)){
-           var el = document.getElementById(targetID);
-           if(el){
-              var div = document.createElement("div");
-              el.parentNode.insertBefore(div, el);
-
-              //Remove the SWF
-              swfobject.removeSWF(targetID);
-
-              //Give the new DIV the old element's ID
-              div.setAttribute("id", targetID);
-           }
-       }
-     }
-			{% for attachment in this.attachments %}
-				{% if attachment.attachment_filename.endswith("sb2") %}
-					{% set project_file = attachment %}
-				{% endif %}
-
-			{% if project_file %}
-	loadSWF("{{ project_file|url }}");
-			{% endif %}
-			{% endfor %}
-    </script>
-
-
 {% endblock %}
 {% block body %}
-
-
-
-
-
-
-
-				<div id="flashContent" class="warning" style="display: flex; justify-content: center; align-items: center">
-					Please upload a Scratch project file (.sb2 or .sb) for the '{{ this.name }}' project by using 'Add Attachment' in the admin interface.
+            {% set project_file = "" %}
+			{% for attachment in this.attachments %}
+				{% if attachment.attachment_filename.endswith("sb2") or attachment.attachment_filename.endswith("sb") %}
+					{% set project_file = attachment %}
+				{% endif %}
+			{% endfor %}
+			<figure id="fig{{ project_file|url }}">
+			{% if this.attachments.images.first() %}
+								<center><img src="{{ this.attachments.images.first().thumbnail(350)|url }}" style="width: auto; padding-left: 8%; padding-right: 8%; padding-bottom: 2%" /></center>
+				{% else %} 
+				<div style="height:180px">
+				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a project thumbnail for project '{{ this.name }}' by using 'Add Attachment' in the admin interface.</div></img>
 				</div>
+				{% endif %}
 
 
+				<figcaption><h3>{{ this.name }}</h3><p>by {{ this.author }}<a id="sb2_download" href="{{ project_file|url }}"><!-- Button -->
 
-
+    <button id="download" name="download" class="btn btn-primary">Download Project</button>
+</a><br/>
+				{% if this.description %}
+				<br/>
+				<pre style="color: ; border: 0; width: 92%">{{ this.description }}</pre> </p></figcaption>
+				{% endif %}
+			</figure>
 
 {% endblock %}
