@@ -50,5 +50,6 @@ View the demonstration website [here](https://creativekids.github.io/school-webs
 * [Add Project Icon](http://www.pd4pic.com/add-plus-increase-cross-blue-math-operator-icon.html) Public Domain CC0
 * [Question Mark Icon](http://www.clker.com/clipart-question-mark-15.html) Public Domain
 * [Lato Font](https://fonts.google.com/specimen/Lato) Open Font License
+* [Loading Image](http://www.ajaxload.info/) Do What The Fuck You Want To Public License
 
 <sup>1 Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See http://scratch.mit.edu.</sup>
