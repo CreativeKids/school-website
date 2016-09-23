@@ -8,7 +8,7 @@
 				{% if attachment.attachment_filename.endswith("sb2") or attachment.attachment_filename.endswith("sb") %}
 					{% set project_file = attachment %}
 				{% endif %}
-			{% endfor %}
+            {% if project_file %}
 			<figure id="fig{{ project_file|url }}">
 			{% if this.attachments.images.first() %}
 								<center><img src="{{ this.attachments.images.first().thumbnail(350)|url }}" style="width: auto; padding-left: 8%; padding-right: 8%; padding-bottom: 2%" /></center>
@@ -28,5 +28,8 @@
 				<pre style="color: ; border: 0; width: 92%">{{ this.description }}</pre> </p></figcaption>
 				{% endif %}
 			</figure>
+		   {% set project_file = "" %}
+		   {% endif %}
+		   {% endfor %}
 
 {% endblock %}

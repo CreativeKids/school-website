@@ -137,7 +137,6 @@ $(function() {
 	
 <section class="slideshow">
 	<ul>
-	    {% set project_file = " " %}
 		{% for project in this.children %}
 			{% for attachment in project.attachments %}
 				{% if attachment.attachment_filename.endswith("sb2") or attachment.attachment_filename.endswith("sb") %}
