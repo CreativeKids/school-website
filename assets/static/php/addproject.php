@@ -20,8 +20,6 @@ function test_input($data) {
 }
 
 function error($msg, $path) {
-    array_map('unlink', glob("$path/*"));
-    rmdir($path);
     $response_array['status'] = $msg;
     // Write the contents back to the file
     file_put_contents($file, $msg);
