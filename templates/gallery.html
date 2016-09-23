@@ -43,6 +43,9 @@ $(function() {
               } else {
                 $('#status_msg').html(data.status);
               }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              $('#status_msg').html(jqXHR + " " + textStatus + " " + errorThrown);
             }
           });
 
