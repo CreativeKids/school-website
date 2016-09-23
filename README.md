@@ -49,5 +49,6 @@ View the demonstration website [here](https://creativekids.github.io/school-webs
 * [Knob Buttons Toolbar icons](http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960) by Miles Ponson (iTweek)
 * [Add Project Icon](http://www.pd4pic.com/add-plus-increase-cross-blue-math-operator-icon.html) Public Domain CC0
 * [Question Mark Icon](http://www.clker.com/clipart-question-mark-15.html) Public Domain
+* [Lato Font](https://fonts.google.com/specimen/Lato) Open Font License
 
 <sup>1 Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See http://scratch.mit.edu.</sup>
