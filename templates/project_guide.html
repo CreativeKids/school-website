@@ -33,6 +33,10 @@
 
 		<h1>{{ this.name }}</h1><br/><br/>
 		<p style="position:absolute">by {{ this.author }} </p>
+                {% if this.translator %}
+		<br/><p>Modified by {{ this.translator }}</p>
+		{% endif %}
+		<br/><p>License: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed">CC-BY-SA 4.0</a></p>
 	</header>
 
 <header class="instructions"><div>{{ this.instructions }}</div></header>
@@ -46,6 +50,7 @@
 
 {% block footer %}
 Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See <a href="http://scratch.mit.edu">http://scratch.mit.edu.</a> <br/>
+Unless specified otherwise, this project is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/deed">CC-BY-SA 4.0</a> license.<br/>
 
 {% endblock %}
 
