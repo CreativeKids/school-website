@@ -51,5 +51,7 @@ View the demonstration website [here](https://creativekids.github.io/school-webs
 * [Question Mark Icon](http://www.clker.com/clipart-question-mark-15.html) Public Domain
 * [Lato Font](https://fonts.google.com/specimen/Lato) Open Font License
 * [Loading Image](http://www.ajaxload.info/) Do What The Fuck You Want To Public License
+* [Files Icon](https://openclipart.org/detail/177890/file-folder) TheByteMan Public Domain
+* [Scratch Icon](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Scratchcat.svg/222px-Scratchcat.svg.png) Lifelong Kindergarten Group at the MIT Media Lab CC-BY-SA-3.0
 
 <sup>1 Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab. See http://scratch.mit.edu.</sup>

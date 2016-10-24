@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.name }} - {% endblock %}
 {% block scripts %}
+    <script type="text/javascript" src="{{ '/static/js/swfobject.js'|url }}"></script>
     <script type="text/javascript" src="{{ '/static/js/jquery-3.1.0.min.js'|url }}"></script>
 <script type="text/javascript">
 // thanks to http://www.phpgang.com/how-to-show-image-thumbnail-before-upload-with-jquery_573.html //
@@ -67,6 +68,78 @@ $(function() {
 }
 </style>
 
+ <script type="text/javascript">
+    function JSeditorReady() {
+      return true;
+    }
+
+    function JSsetPresentationMode(flag) {
+      /*if (flag) {*/
+        var element = document.getElementsByClassName("current show")[0];
+
+        element.style.width = "60%";
+        element.style.height = "90%";
+        element.style.top = "5%";
+        element.style.left = "20%";
+        element.style.margin = "0";
+      /*} else {
+        var element = document.getElementsByClassName("current show")[0];
+        element.style.width = "40%";
+        element.style.height = "60%";
+        element.style.top = "20%";
+        element.style.left = "30%";
+        element.style.margin = "0";
+      }*/
+    }
+
+
+      function loadSWF(url) {
+        var flashvars = {};
+        flashvars.project = "{{ site.url }}/data/project_files/" + url;
+        flashvars.autostart = "false";
+        var params = {};
+        params.menu = "false";
+        params.wmode = "direct";
+        params.bgcolor = "#FFFFFF";
+        params.allowfullscreen = "true";
+        params.allowscriptaccess = "always";
+        var attributes = {};
+        attributes.id = "flashContent" + url;
+
+        swfobject.embedSWF("{{ site.url }}/static/swf/Scratch.swf", "flashContent" + url, "100%", "400px", "10.2.0", false, flashvars, params, attributes);
+      }
+
+      //Support function: checks to see if target
+      //element is an object or embed element
+      function isObject(targetID){
+         var isFound = false;
+        var el = document.getElementById(targetID);
+         if(el && (el.nodeName === "OBJECT" || el.nodeName === "EMBED")){
+            isFound = true;
+         }
+         return isFound;
+      }
+
+      function deleteSWF(targetID) {
+        targetID = "flashContent" + targetID;
+       if(isObject(targetID)){
+           var el = document.getElementById(targetID);
+           if(el){
+              var div = document.createElement("div");
+              el.parentNode.insertBefore(div, el);
+
+              //Remove the SWF
+              swfobject.removeSWF(targetID);
+
+              //Give the new DIV the old element's ID
+              div.setAttribute("id", targetID);
+           }
+       }
+     }
+    </script>
+
+ 
+
 {% endblock %}
 {% block body %}
 
@@ -125,7 +198,7 @@ $(function() {
 		{% endfor %}
 
 		{% endif %}
-		<li>
+		<!--<li>
 		    <figure>
 		    <div style="height:180px">
 		    <center><img src="{{ '/static/add_project.png'|url }}" style="width:80%"></img></center>
@@ -134,7 +207,7 @@ $(function() {
 					<h3>Add New Project</h3>
 				</figcaption>
 			</figure>
-		</li>
+		</li>-->
 	</ul>
 	</section><!-- // grid-wrap -->
 	
@@ -150,7 +223,10 @@ $(function() {
 		<li id="{{ project_file|url }}">
 			<figure id="fig{{ project_file|url }}">
 			{% if project.attachments.images.first() %}
+				<div id="flashContent{{ project_file|url }}" width="100%" height="100%">
+					<a href="http://www.adobe.com/go/getflash">Adobe Flash Player</a>
 								<center><img src="{{ project.attachments.images.first().thumbnail(350)|url }}" style="width: auto; padding-left: 8%; padding-right: 8%; padding-bottom: 2%" /></center>
+				</div>
 				{% else %} 
 				<div style="height:180px">
 				<img><div class="warning" style="height: 170px; width: 238px; display: flex; justify-content: center; align-items: center">Please upload a project thumbnail for project '{{ project.name }}' by using 'Add Attachment' in the admin interface.</div></img>
@@ -175,7 +251,7 @@ $(function() {
 			{% endfor %}
 		{% endfor %}
 		
-		<li id="add_project">
+<!--		<li id="add_project">
 		    <figure id="figAddProject">
 		    <figcaption>
 		    <form id="frmAddProject" class="form-horizontal" enctype="multipart/form-data">
@@ -250,7 +326,7 @@ $(function() {
 </figcaption>
 		    </figure>
 		</li>
-
+-->
 	</ul>
 	<nav>
 		<span class="icon nav-close"></span>
